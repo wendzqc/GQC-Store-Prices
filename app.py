@@ -28,7 +28,7 @@ CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv"
 # ----------------------------
 # LOAD DATA FUNCTION
 # ----------------------------
-@st.cache_data(ttl=300)  # cache for 5 minutes
+@st.cache_data(ttl=10)  # cache for 5 minutes
 def load_data():
     df = pd.read_csv(CSV_URL)
     # Ensure price column is numeric
@@ -70,3 +70,4 @@ st.dataframe(
     use_container_width=True,
     hide_index=True
 )
+
